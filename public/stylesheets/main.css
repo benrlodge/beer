@@ -29,6 +29,11 @@ body {
   margin-bottom: 40px;
   margin-top: 0;
 }
+@media (max-width: 768px) {
+  .search-header__headline {
+    font-size: 20px;
+  }
+}
 
 .search-header__subheadline {
   font-size: 22px;
@@ -40,11 +45,21 @@ body {
   font-size: 26px;
   padding: 30px 0 30px 50px;
 }
+@media (max-width: 768px) {
+  .searchBox {
+    font-size: 16px;
+  }
+}
 
 .search-area {
   max-width: 500px;
   margin: 0 auto;
   position: relative;
+}
+@media (max-width: 768px) {
+  .search-area {
+    width: 75%;
+  }
 }
 
 .fa.search-icon {
@@ -80,6 +95,12 @@ body {
 }
 .beer:nth-child(4n+4) {
   margin-right: 0;
+}
+@media (max-width: 768px) {
+  .beer {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .beer__name {
