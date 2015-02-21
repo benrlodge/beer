@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
 
-var apiKeys = require('../config/apiKeys');
+// var apiKeys = require('../config/apiKeys');
 var BreweryDb = require('brewerydb-node');
-var brewdb = new BreweryDb(apiKeys.breweryDB);
+
+// var brewdb = new BreweryDb(process.env.BREWERYDB);
+var brewdb = new BreweryDb('088a5540d5ae09ddb9699ddb323186ac');
 
 
 router.get('/', function(req, res) {
