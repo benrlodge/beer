@@ -5,8 +5,7 @@ var _ = require('underscore');
 // var apiKeys = require('../config/apiKeys');
 var BreweryDb = require('brewerydb-node');
 
-// var brewdb = new BreweryDb(process.env.BREWERYDB);
-var brewdb = new BreweryDb('088a5540d5ae09ddb9699ddb323186ac');
+var brewdb = new BreweryDb(process.env.BREWERYDB);
 
 
 router.get('/', function(req, res) {
