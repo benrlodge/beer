@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <title>Beer-me</title>
+    <link rel='stylesheet' href='/stylesheets/vendor.css'>
+    <link rel='stylesheet' href='/stylesheets/main.css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    
+
+    <div id="primary-container">    
+      <div id='search-box'></div>
+      <div id='search-results-filter' class='section-container'></div>
+      <div id='search-results' class='section-container'></div>
+      <div id='beerModal'></div>
+    </div>
+
+      
+    <script type="text/template" id="SearchView">
+        
+      <div class="search-header">
+        <h1 class='search-header__headline'>Explore the world of Beers</h1>
+        <h2 class='search-header__subheadline'></h2>
+          <div class="form-group search-area">
+            <span class="fa fa-search search-icon"></span>
+            <input autofocus name="searchBox" id="searchBox" type="text" placeholder="Search thousands of beers..." value="" class="form-control searchBox">
+          </div>
+      </div>
+    </script>
+
+
+
+
+    <script type="text/template" id="beerTemplate">      
+
+      <div class="beer" data-action="beer-detail" data-beer-id="{{this.id}}">
+          <div class="beer__logo">
+            {{#if this.labels.medium}}
+              <img src="{{this.labels.medium}}">
+            {{else}}
+              <img src="/images/beerplaceholder.jpg">
+            {{/if}}
+          </div>
+          <h3 class='beer__name'>{{this.name}}</h3>
+          {{#if this.style.category.name }} 
+            <p class='beer__info'>{{this.style.category.name }}</p> 
+          {{/if}}      
+      </div>
+
+    </script>
+
+
+
+
+
+    <script type="text/template" id="searchResultsFilter">      
+      <div></div>
+    </script>
+
+
+
+
+
+
+    <script type="text/template" id="modalTemplate">       
+      <div id='cover'></div>
+      <div class='beer-modal'>
+        <span class='close-modal'> X </span>
+          
+            <div class='text-center modal__headline'>
+              <h3 class='modal__name'>{{this.name}}</h3>
+              {{#if this.style.name}} 
+                <p class='beer__info'> {{this.style.name}} </p> 
+              {{/if}}
+            </div>
+          
+          <div class='row'>
+            <div class='col-md-5'>
+
+              {{#if this.servingTemperatureDisplay}} 
+                <p class='beer__info'>
+                  <img class='modal__temp-icon' src="/images/icons/icon-temp.png">
+                  <strong>Serve: </strong> {{this.servingTemperatureDisplay}}
+                </p> 
+              {{/if}}
+
+              {{#if this.glass.name}} 
+                <p class='beer-detail glass' style='background-image: url("/images/icons/{{glassImage this.glass.id}}")'>
+                  <strong>Serve in a: </strong> {{this.glass.name}} glass
+                </p> 
+              {{/if}}
+
+              {{#if this.foodPairings}} 
+                <p class='beer-detail foodPairing'>
+                  Pairs well with:  {{this.foodPairings}}
+                </p> 
+              {{/if}}
+
+              {{#if this.available.name}} 
+                <p class='beer-detail available'>
+                  <strong>Availability:</strong> {{this.available.name}}
+                </p> 
+              {{/if}}
+
+            </div>
+
+            {{#if this.ibu}} 
+            <div class='col-md-3'>
+                <div id="ibuGauge" style="width:155px; height:140px"></div>
+            </div>
+            {{/if}}
+
+            {{#if this.abv}} 
+            <div class='col-md-3'>
+                <div id="abvGauge" style="width:155px; height:140px"></div>
+            </div>
+            {{/if}}
+
+          </div>
+          
+          <hr>
+          {{#if this.description}} 
+            <p class='beer__info'>{{this.description}}</p> 
+          {{/if}}
+
+      </div>
+
+    </script>
+
+
+
+
+
+
+
+    <img class='beer-loader' src="/images/beerloader.gif~c200">
+
+    <script src='javascripts/build/vendor.js'></script>
+    <script src='javascripts/build/app.js'></script>
+  </body>
+</html>
